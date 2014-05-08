@@ -1,0 +1,58 @@
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 14px; }
+
+/**
+ * Chat
+ */
+.c-floating .c-right {
+  float: right; }
+
+.c-clearfix {
+  border: 0;
+  padding: 0;
+  clear: both; }
+
+.c-taskbar {
+  border: 1px dotted;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+  .c-taskbar .c-taskbar-inner {
+    border: 1px dotted #F00;
+    position: relative; }
+
+.c-box {
+  border: 1px solid #CCC;
+  padding: 3px;
+  min-width: 200px; }
+  .c-box .c-box-tbar {
+    border: 1px solid;
+    text-align: right;
+    padding: 3px; }
+    .c-box .c-box-tbar .c-tbar-btn {
+      border: 1px solid #00F;
+      display: inline-block;
+      padding: 1px 4px;
+      line-height: 1;
+      cursor: pointer; }
+      .c-box .c-box-tbar .c-tbar-btn:hover {
+        background-color: #CCC; }
+  .c-box .c-box-message {
+    border: 1px solid;
+    min-height: 100px; }
+  .c-box .c-box-form {
+    border: 1px solid; }
+    .c-box .c-box-form .c-input {
+      padding: 5px;
+      margin: 0;
+      border: 1px solid;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box; }
+
+/** End of Chat  */
