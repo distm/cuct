@@ -41,6 +41,39 @@ class MY_Loader extends CI_Loader {
         $CI->db = '';
         $CI->db = & $db;
     }
+    
+    public function content($content, $vars=array(), $return=FALSE)
+    {
+        if($content)
+        {
+            $class_name = $this->router->class;
+            $content_file = APPPATH. "views/{$class_name}/{$content}". EXT;
+            if(file_exists($content_file))
+            {
+                if($return === TRUE)
+                {
+                    return $this->load->view("{$class_name}/{$content}", $vars, $return);
+                }
+                else
+                {
+                    $this->load->view("{$class_name}/{$content}", $vars);
+                    return TRUE;
+                }
+            }
+            else
+            {
+                if($return === TRUE)
+                {
+                    return "#404: views/{$class_name}/{$content}". EXT;
+                }
+                else
+                {
+                    echo "#404: views/{$class_name}/{$content}". EXT;
+                    return FALSE;
+                }
+            }
+        }
+    }
 
 }
 

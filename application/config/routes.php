@@ -38,8 +38,10 @@
 |
 */
 
-$route['default_controller'] = "home";
+$route['default_controller'] = "beranda";
 $route['404_override'] = '';
+
+$route['admin'] = 'beranda/admin_index_map';
 
 
 /* End of file routes.php */
