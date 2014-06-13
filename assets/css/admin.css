@@ -1,0 +1,26 @@
+/* override */
+.mce-fullscreen {
+    z-index: 1000000 !important;
+}
+.a-navigation .nav-pills {
+    z-index: 1;
+}
+.pagination-clear {
+    margin: 0;
+}
+
+/* core */
+.mt15 { margin-top: 15px }
+.mb15 { margin-bottom: 15px }
+
+/* panel */
+.a-panel {}
+.a-panel .panel-body {
+    padding: 10px 15px;
+}
+.a-panel .panel-body .a-panel-title {
+    font-size: 16px;
+}
+.a-panel .panel-body .a-panel-summary {
+    padding: 5px 10px 3px;
+}

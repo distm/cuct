@@ -15,4 +15,13 @@ $(function(){
             ads.html((h<10?'0'+h:h) +":"+ (i<10?'0'+i:i) +":"+ (s<10?'0'+s:s));
         }, 1000);
     }
+    
+    // home tab
+    $(".home-tab").each(function(){
+        $(this).find("a").click(function (e) {
+            e.preventDefault();
+            $(this).tab("show");
+        });
+    });
+    
 });

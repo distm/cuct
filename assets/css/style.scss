@@ -3,8 +3,8 @@
 
 // vars
 $border-color: #E5E5E5;
-$danger-color: #D84A38;
-$widget-color: #08AEEA;
+$danger-color: #628F8E;
+$widget-color: #628F8E;
 // end of vars
 
 // mixins
@@ -51,9 +51,15 @@ body {
         margin: 9px 0 8px;
     }
 }
-.pm00 {
+.pm00, .mp00 {
     margin: 0;
     padding: 0;
+}
+
+a, input[type='text'] {
+    &:focus {
+        outline: none;
+    }
 }
 
 .a-list {
@@ -121,6 +127,7 @@ body {
     .a-content-wrapper {
         width: 1017px;
         border: 1px solid #AAA;
+        background-color: #FFF;
         @include box-shadow(0 4px 16px rgba(0,0,0,.2));
         padding: 5px;
         margin: 0 auto;
@@ -192,45 +199,36 @@ body {
         }
     }
     
-    .a-tab-content {
-        border: 1px solid $border-color;
-        position: relative;
-        
-        > .navbar {
-            margin: -1px -1px 0 !important;
-            
-            a {
-                text-decoration: none;
-                color: #CCC !important;
-                &:focus, &:hover {
-                    @extend a;
-                    color: #FFF !important;
-                }
+    .a-tab-home {
+        .nav-tabs.nav-justified > li {
+            > a {
+                @include border-radius(0);
+                background-color: #405A4E;
+                border: none;
+                border-bottom: 3px solid transparent;
+                padding-bottom: 7px;
+                white-space: nowrap;
+                color: #FFF;
             }
-            .active > a {
+        }
+        .nav-tabs.nav-justified > li:nth-child(2) > a {
+            background-color: #527465;
+        }
+        .nav-tabs.nav-justified > li:nth-child(3) > a {
+            background-color: #6B9582;
+        }
+        .nav-tabs.nav-justified > li:nth-child(4) > a {
+            background-color: #8FAFA1;
+        }
+        
+        .nav-tabs.nav-justified > .active {
+            > a, 
+            > a:hover, 
+            > a:focus {
+                border-bottom-color: #000 !important;
                 font-weight: normal;
-                color: #FFF !important;
-                &:focus, &:hover {
-                    @extend a;
-                }
+                color: #FFF;
             }
-        }
-        
-        .a-tab-body {
-            padding: 10px;
-        }
-    }//end of .a-tab-content
-    
-    .a-tab-news {
-        .nav-tabs.nav-justified > li > a {
-            border-bottom-color: $widget-color;
-            @include border-radius(0);
-        }
-        .nav-tabs.nav-justified > .active > a, 
-        .nav-tabs.nav-justified > .active > a:hover, 
-        .nav-tabs.nav-justified > .active > a:focus {
-            border: 1px solid $widget-color;
-            border-bottom-color: #FFF;
         }
     
         .a-tab-body {
@@ -238,15 +236,54 @@ body {
             margin-top: -1px;
             padding: 10px;
         }
-    }// end of .a-tab-news
+    }// end of .a-tab-home
 } //end of .a-content
 
 .a-testimony {
-    //border: 1px dotted #F00;
+    position: relative;
+    border: 1px solid $border-color;
+    margin-left: 27px;
+    
+    .a-testimony-title {
+        position: relative;
+        width: 99px;
+        z-index: 1;
+        padding: 5px 10px 5px 15px;
+        margin: -1px -1px 0 0;
+        background-color: $widget-color;
+        color: #FFF;
+        
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+        
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+        
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -28px;
+            border-left: 28px solid $widget-color;
+            border-bottom: 28px solid transparent;
+            z-index: 2;
+        }
+    }
+    
+    .a-testimony-body {
+        margin-top: -27px;
+    }
     
     .a-testimony-item {
         //border: 1px solid $border-color;
-        padding: 10px 5px;
+        padding: 10px;
         
         .a-ti-photo {
             //border: 1px solid;

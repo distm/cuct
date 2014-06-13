@@ -1,6 +1,6 @@
 <div class="widget">
     <div class="widget-header">
-        <div class="widget-title">Calculator</div>
+        <div class="widget-title">Simulasi Pinjaman</div>
     </div>
     <div class="widget-body">
         <form method="post">
@@ -25,7 +25,7 @@
                 <label>Lama Angsuran (Bulan)</label>
                 <input class="form-control" type="text" />
             </div>
-            <button type="submit" class="btn btn-danger">Kalkulasi</button>
+            <button type="submit" class="btn btn-danger">Hitung</button>
         </form>
     </div>
 </div>

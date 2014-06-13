@@ -3,24 +3,25 @@
 if(!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class ADM_Controller extends CI_Controller {
+class ADM_Controller extends MY_Controller {
 
-    var $_data;
-    
     function __construct()
     {
         parent::__construct();
+        
+        // load library
+        $this->load->library('form_validation');
+        
+        // setup
         $this->_setup_data();
         $this->_setup_navigation();
     }
     
     private function _setup_data()
     {
-        $data = array();
-        $data['page_title'] = 'Admin - CuCindelaras.Org';
-        $data['content'] = '';
-        
-        $this->_data = $data;
+        $cls = ucwords(str_replace('_', ' ', $this->router->class));
+        $this->_data['page_title'] = trim(trim(trim($cls .' - Admin :: CuCindelaras.Org'), '-'));
+        $this->_data['content'] = '';
     }
     
     protected function _setup_navigation()

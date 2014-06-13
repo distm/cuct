@@ -3,6 +3,11 @@
 if(!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+function admin_url($uri='')
+{
+    return base_url("admin/{$uri}");
+}
+
 function assets_url($uri='')
 {
     return base_url("assets/{$uri}");
@@ -12,6 +17,7 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
 {
     global $nav_html;
     $ci =& get_instance();
+    $dir_uri = $ci->router->directory;
     
     $cls = $is_child ? 'dropdown-menu' : 'nav nav-pills nav-stacked';
     if(preg_match('/(admin)/i', $ci->router->directory))
@@ -47,7 +53,15 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
         }
         else
         {
-            $href = base_url(@$item['class'] .'/'. @$item['method']. '/'. @$item['params']);
+            if(strpos($dir_uri, 'admin') !== FALSE)
+            {
+                $href = admin_url(@$item['class'] .'/'. @$item['method']. '/'. @$item['params']);
+            }
+            else
+            {
+                $href = base_url(@$item['class'] .'/'. @$item['method']. '/'. @$item['params']);
+            }
+            
             if(isset($item['href']))
             {
                 $href = $item['href'];
@@ -61,6 +75,67 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
     $nav_html .= '</ul>'."\n";
     
     return $nav_html;
+}
+
+function paging($conf=array())
+{
+    $default = array(
+        'use_page_numbers'=> TRUE,
+        'first_link'      => 'First',
+        'last_link'       => 'Last',
+        
+        'next_link'       => '<i class="fa fa-chevron-right"></i>',
+        'prev_link'       => '<i class="fa fa-chevron-left"></i>',
+        
+        'full_tag_open'   => '<ul class="pagination">',
+        'full_tag_close'  => '</ul>',
+        
+        'first_tag_open'  => '<li>',
+        'first_tag_close' => '</li>',
+        
+        'last_tag_open'   => '<li>',
+        'last_tag_close'  => '</li>',
+        
+        'cur_tag_open'    => '<li class="disabled"><a href="#">',
+        'cur_tag_close'   => '</a></li>',
+        
+        'next_tag_open'   => '<li>',
+        'next_tag_close'  => '</li>',
+        
+        'prev_tag_open'   => '<li>',
+        'prev_tag_close'  => '</li>',
+        
+        'num_tag_open'    => '<li>',
+        'num_tag_close'   => '</li>',
+        
+        'class' => 'pagination-clear',
+        'sufix' => ''
+    );
+    $config = array_merge($default, $conf);
+    
+    // apply class
+    if($config['class'])
+    {
+        $config['full_tag_open'] = '<ul class="pagination '. $config['class'] .'">';
+    }
+    
+    $CI =& get_instance();
+    $CI->load->library('pagination');
+    $CI->pagination->initialize($config); 
+
+    $paging = $CI->pagination->create_links();
+    if(! $paging)
+    {
+        $paging = '<ul class="pagination '. $config['class'] .'"><li class="disabled"><a href="#">1</a></li></ul>';
+    }
+    
+    // sufix
+    if($config['sufix'])
+    {
+        $paging = preg_replace('/href="http:\/\/(.*?)"/i', 'href="http://$1'. $config['sufix'] .'"', $paging);
+    }
+    
+    return $paging;
 }
 
 function print_date_localize($matches)
@@ -104,19 +179,21 @@ function print_date_localize($matches)
     }
 }
 
-function print_date($conf=array())
+function print_date($string_date='', $conf=array())
 {
     $config = array_merge(
         array(
             'format' => 'd-m-Y h:i:s a',
             'locale' => TRUE,
+            'prefix' => '',
+            'sufix'  => '',
             'return' => FALSE
         ),
         $conf
     );
     
     // get result
-    $result = date($config['format']);
+    $result = $string_date ? date($config['format'], strtotime($string_date)) : date($config['format']);
     if($config['locale'] === TRUE)
     {
         $d = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
@@ -124,6 +201,9 @@ function print_date($conf=array())
         $patern = '/('. implode('|', $d) .'|'. implode('|', $m) .')/i';
         $result = preg_replace_callback($patern, "print_date_localize", $result);
     }
+    
+    // prefix and sufix
+    $result = ($config['prefix'] ? "{$config['prefix']} " : '') . $result . ($config['sufix'] ? " {$config['sufix']}" : '');
     
     // send result
     if($config['return'] === TRUE)

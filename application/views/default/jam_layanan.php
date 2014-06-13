@@ -11,7 +11,7 @@
                 </h1>
                 <h4 class="text-center pm00" style="padding-bottom:15px;">
                     <?php 
-                        print_date(array(
+                        print_date('', array(
                             'format' => 'l, d F Y',
                             'locale' => TRUE
                         )); 

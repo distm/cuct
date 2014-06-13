@@ -1,0 +1,20 @@
+.a-content-wrapper,
+.a-content-wrapper img,
+.a-content-wrapper .btn,
+.a-content-wrapper .badge {
+    behavior: url(PIE.htc);
+}
+.a-content-wrapper .a-copyright .a-quick-contact a {
+    position:relative;
+    z-index: 0;
+    border-radius: 13px;
+    behavior: url(PIE.htc);
+}
+
+.a-testimony .a-testimony-title {
+    margin-left: -28px;
+    position:relative;
+    z-index: 0;
+    zoom: 1;
+    behavior: url(PIE.htc);
+}

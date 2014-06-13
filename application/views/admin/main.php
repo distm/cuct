@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo assets_url('libs/todc/css/todc-bootstrap.min.css'); ?>" />        
         <link rel="stylesheet" type="text/css" href="<?php echo assets_url('libs/fa/css/font-awesome.min.css'); ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo assets_url('libs/select2/old/select2.css'); ?>" />        
+        <link rel="stylesheet" type="text/css" href="<?php echo assets_url('css/style.css'); ?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo assets_url('css/admin.css'); ?>" />
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,7 +31,15 @@
     
         <?php echo $navigation; ?>
         
+        <div class="container">
+            <?php echo $content; ?>
+        </div>
+        
         <script type="text/javascript" src="<?php echo assets_url('libs/todc/js/bootstrap.min.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo assets_url('libs/select2/old/select2.min.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo assets_url('js/app-admin.js'); ?>"></script>
+        <?php foreach($js as $f): ?>
+            <script type="text/javascript" src="<?php echo $f; ?>"></script>
+        <?php endforeach; ?>
     </body>
 </html>

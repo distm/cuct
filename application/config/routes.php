@@ -41,7 +41,7 @@
 $route['default_controller'] = "beranda";
 $route['404_override'] = '';
 
-$route['admin'] = 'beranda/admin_index_map';
+$route['admin'] = 'admin/beranda';
 
 
 /* End of file routes.php */

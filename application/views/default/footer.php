@@ -3,7 +3,6 @@ $json = $this->load->view('default/navigation_json', '', TRUE);
 $navs = json_decode($json, TRUE);
 ?>
 <div class="a-footer">
-    <div class="line"></div>
     <div class="container">
         <div class="row show-grids">
             

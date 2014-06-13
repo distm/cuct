@@ -3,7 +3,7 @@
 if(!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Beranda extends MY_Controller {
+class Beranda extends FT_Controller {
     
     function __construct()
     {
@@ -17,11 +17,6 @@ class Beranda extends MY_Controller {
         
         // load main page
         $this->load->view("main", $this->_data);
-    }
-    
-    function admin_index_map()
-    {
-        echo 'FOO';
     }
     
 }

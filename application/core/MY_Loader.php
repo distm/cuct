@@ -46,17 +46,18 @@ class MY_Loader extends CI_Loader {
     {
         if($content)
         {
+            $directory = $this->router->directory;
             $class_name = $this->router->class;
-            $content_file = APPPATH. "views/{$class_name}/{$content}". EXT;
+            $content_file = APPPATH. "views/{$directory}{$class_name}/{$content}". EXT;
             if(file_exists($content_file))
             {
                 if($return === TRUE)
                 {
-                    return $this->load->view("{$class_name}/{$content}", $vars, $return);
+                    return $this->load->view("{$directory}{$class_name}/{$content}", $vars, $return);
                 }
                 else
                 {
-                    $this->load->view("{$class_name}/{$content}", $vars);
+                    $this->load->view("{$directory}{$class_name}/{$content}", $vars);
                     return TRUE;
                 }
             }
@@ -64,11 +65,11 @@ class MY_Loader extends CI_Loader {
             {
                 if($return === TRUE)
                 {
-                    return "#404: views/{$class_name}/{$content}". EXT;
+                    return "#404: views/{$directory}{$class_name}/{$content}". EXT;
                 }
                 else
                 {
-                    echo "#404: views/{$class_name}/{$content}". EXT;
+                    echo "#404: views/{$directory}{$class_name}/{$content}". EXT;
                     return FALSE;
                 }
             }

@@ -6,13 +6,13 @@
     
         <ul class="a-list">
             <li>
-                <a href="#">Formulir <span class="badge pull-right">12</span></a>
+                <a href="#">Form Pendaftaran Anggota <span class="badge pull-right">12</span></a>
             </li>
             <li>
-                <a href="#">Laporan Keuangan <span class="badge pull-right">42</span></a>
+                <a href="#">Form Pengajuan Pinjam <span class="badge pull-right">42</span></a>
             </li>
             <li>
-                <a href="#">Lain-lain <span class="badge pull-right">4</span></a>
+                <a href="#">Pola Kebijakan (pdf) <span class="badge pull-right">4</span></a>
             </li>
         </ul>
     
