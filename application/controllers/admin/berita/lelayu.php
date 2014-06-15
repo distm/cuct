@@ -123,7 +123,7 @@ class Lelayu extends ADM_Controller {
                 'flashdata' => $save ? 'Berita lelayu berhasil disimpan' : 'Berita lelayu gagal disimpan',
                 'flashid' => md5($data['judul'])
             ));
-            redirect(base_url('admin/berita/lelayu'));
+            redirect(admin_url('berita/lelayu'));
         }
         else
         {

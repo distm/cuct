@@ -14,6 +14,9 @@ tinymce.init({
     image_advtab: true,
 
     relative_urls: false,
+    remove_script_host : false,
+    convert_urls : false,    
+    
     external_filemanager_path: "/assets/libs/filemanager/",
     filemanager_title: "Filemanager" ,
     external_plugins: { 

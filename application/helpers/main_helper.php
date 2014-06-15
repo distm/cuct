@@ -36,11 +36,15 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
     foreach($nav as $item)
     {
         $active = '';
-        if($item['class'] == @$active_data['class'])
+        if($item['class'] == @$active_data['class'] && $level == 0)
         {
             $active = 'active';
         }
-    
+        if(@$item['method'] == @$active_data['method'] && $level == 1)
+        {
+            $active = 'active';
+        }
+        
         if(isset($item['children']) && is_array($item['children']) && count($item['children']))
         {
             $cls_li = ($level >= 1) ? 'dropdown-submenu' : 'dropdown';

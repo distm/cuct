@@ -1,4 +1,7 @@
 [
+    {"class":"profil", "caption":"Profil CUCT"},
+    {"class":"produk", "caption":"Produk dan Layanan"},
+    
     {"class":"berita", "caption":"Berita", 
         "children": [
             {"class":"berita", "method":"kabar",         "caption":"Kabar"},

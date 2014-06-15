@@ -24,15 +24,19 @@ class ADM_Controller extends MY_Controller {
         $this->_data['content'] = '';
     }
     
-    protected function _setup_navigation()
+    protected function _setup_navigation($vars='')
     {
-        $vars = array(
-            'active' => array(
-                'class' => $this->router->class,
-                'method' => $this->router->method,
-                'params' => $this->uri->segment_array()
-            )
-        );
+        if(! $vars)
+        {
+            $vars = array(
+                'active' => array(
+                    'class' => $this->router->class,
+                    'method' => $this->router->method,
+                    'params' => $this->uri->segment_array()
+                )
+            );
+        }
+        
         $this->_data['navigation'] = $this->load->view('admin/navigation', $vars, TRUE);
     }
     

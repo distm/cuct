@@ -125,7 +125,7 @@ class Kabar extends ADM_Controller {
                 'flashdata' => $save ? 'Kabar berhasil disimpan' : 'Kabar gagal disimpan',
                 'flashid' => md5($data['judul'])
             ));
-            redirect(base_url('admin/berita/kabar'));
+            redirect(admin_url('berita/kabar'));
         }
         else
         {

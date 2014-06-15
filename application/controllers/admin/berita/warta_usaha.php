@@ -125,7 +125,7 @@ class Warta_usaha extends ADM_Controller {
                 'flashdata' => $save ? 'Warta usaha berhasil disimpan' : 'Warta usaha gagal disimpan',
                 'flashid' => md5($data['judul'])
             ));
-            redirect(base_url('admin/berita/warta-usaha'));
+            redirect(admin_url('berita/warta-usaha'));
         }
         else
         {
