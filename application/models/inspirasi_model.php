@@ -3,7 +3,7 @@
 if(!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Kabar_model extends CI_Model {
+class Inspirasi_model extends CI_Model {
 
     function detail($id)
     {
@@ -13,7 +13,7 @@ class Kabar_model extends CI_Model {
         }
         
         $get = $this->db->limit(1)
-                        ->get_where('kabar', array('id'=>$id));
+                        ->get_where('inspirasi', array('id'=>$id));
         
         if($get && $get->num_rows())
         {
@@ -25,11 +25,11 @@ class Kabar_model extends CI_Model {
         }
     }
 
-    function kabar($limit=20, $start=0)
+    function inspirasi($limit=20, $start=0)
     {
         $get = $this->db->limit($limit, $start)
                         ->order_by('tanggal_input', 'DESC')
-                        ->get('kabar');
+                        ->get('inspirasi');
         
         if($get && $get->num_rows()>0)
         {
@@ -41,7 +41,7 @@ class Kabar_model extends CI_Model {
         }
     }
     
-    function cari_kabar($keys, $limit=20, $start=0)
+    function cari_inspirasi($keys, $limit=20, $start=0)
     {
         if(! $keys)
         {
@@ -55,7 +55,7 @@ class Kabar_model extends CI_Model {
     
         $get = $this->db->limit($limit, $start)
                         ->order_by('tanggal_input', 'DESC')
-                        ->get('kabar');
+                        ->get('inspirasi');
         
         if($get && $get->num_rows()>0)
         {
@@ -67,7 +67,7 @@ class Kabar_model extends CI_Model {
         }
     }
     
-    function tag_kabar($tag, $limit=20, $start=0)
+    function tag_inspirasi($tag, $limit=20, $start=0)
     {
         if(! $tag)
         {
@@ -77,7 +77,7 @@ class Kabar_model extends CI_Model {
         $get = $this->db->limit($limit, $start)
                         ->like('tags', $tag)
                         ->order_by('tanggal_input', 'DESC')
-                        ->get('kabar');
+                        ->get('inspirasi');
         
         if($get && $get->num_rows()>0)
         {

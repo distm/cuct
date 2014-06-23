@@ -67,4 +67,26 @@ class Warta_usaha_model extends CI_Model {
         }
     }
     
+    function tag_warta_usaha($tag, $limit=20, $start=0)
+    {
+        if(! $tag)
+        {
+            return FALSE;
+        }
+        
+        $get = $this->db->limit($limit, $start)
+                        ->like('tags', $tag)
+                        ->order_by('tanggal_input', 'DESC')
+                        ->get('warta_usaha');
+        
+        if($get && $get->num_rows()>0)
+        {
+            return $get->result_array();
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+    
 }

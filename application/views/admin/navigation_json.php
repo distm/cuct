@@ -9,5 +9,9 @@
             {"class":"berita", "method":"inspirasi",     "caption":"Inspirasi"},
             {"class":"berita", "method":"lelayu",        "caption":"Berita Lelayu"}
         ]
-    }
+    },
+    
+    {"class":"download", "caption":"Download"},
+    {"class":"testimoni", "caption":"Testimoni"},
+    {"class":"misc", "caption":"Lain-lain"}
 ]

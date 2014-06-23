@@ -4,7 +4,7 @@
     </div>
     <div class="col-xs-9">
     
-        <h3 class="mp00">Kabar</h3>
+        <h3 class="mp00">Inspirasi</h3>
         <div class="line"></div>
         
         <?php 
@@ -21,9 +21,9 @@
             <div class="col-md-5 text-right"><?php $this->load->content('search'); ?></div>
         </div>
         
-        <?php if(is_array($kabar) && count($kabar)): ?>
+        <?php if(is_array($inspirasi) && count($inspirasi)): ?>
         
-            <?php foreach($kabar as $row): ?>
+            <?php foreach($inspirasi as $row): ?>
                 <?php
                 $tanggal_input = print_date($row['tanggal_input'], array('format'=>'d F Y H:i:s', 'sufix'=>'WIB', 'return'=>TRUE));
                 $summary = strip_tags($row['konten']);
@@ -33,7 +33,7 @@
                 }
                 ?>
             
-                <div class="panel panel-default a-panel <?php echo (md5($row['judul']) == $flashid ? 'panel-info' : ''); ?>" id="kabar-<?php echo $row['id']; ?>">
+                <div class="panel panel-default a-panel <?php echo (md5($row['judul']) == $flashid ? 'panel-info' : ''); ?>" id="inspirasi-<?php echo $row['id']; ?>">
                     <div class="panel-body">
                         <div class="a-panel-title"><strong><?php echo "#{$row['id']} - {$row['judul']}"; ?></strong></div>
                         <div class="a-panel-date"><?php echo $tanggal_input; ?></div>
@@ -42,13 +42,13 @@
                             <div class="pull-left">
                                 <div class="a-panel-tags" style="margin-top:3px">
                                     <?php foreach((array)explode(',', $row['tags']) as $tag): ?>
-                                        <a href="<?php echo admin_url('berita/kabar/tag/'. trim($tag)); ?>"><span class="badge"><?php echo trim($tag); ?></span></a>
+                                        <a href="<?php echo admin_url('berita/inspirasi/tag/'. trim($tag)); ?>"><span class="badge"><?php echo trim($tag); ?></span></a>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="pull-right">
-                                <a href="<?php echo admin_url('berita/kabar/edit/'. $row['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
-                                <a href="<?php echo admin_url('berita/kabar/delete/'. $row['id']); ?>" class="btn btn-danger btn-sm" data-role="delete" data-ajax="false" data-confirm="Yakin akan menghapus data ini?">Hapus</a>
+                                <a href="<?php echo admin_url('berita/inspirasi/edit/'. $row['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="<?php echo admin_url('berita/inspirasi/delete/'. $row['id']); ?>" class="btn btn-danger btn-sm" data-role="delete" data-ajax="false" data-confirm="Yakin akan menghapus data ini?">Hapus</a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

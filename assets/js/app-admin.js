@@ -7,7 +7,7 @@ $(function(){
     // role delete
     $("[data-role='delete']").bind("click", function(){
         var me = $(this),
-            c = me.attr("data-confirm"),
+            c = me.attr("data-confirm") || "Yakin akan menghapus data ini?",
             ajax = (me.attr("data-ajax") === "true");
             
         if(confirm(c)){

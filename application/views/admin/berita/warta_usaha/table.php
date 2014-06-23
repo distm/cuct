@@ -42,13 +42,13 @@
                             <div class="pull-left">
                                 <div class="a-panel-tags" style="margin-top:3px">
                                     <?php foreach((array)explode(',', $row['tags']) as $tag): ?>
-                                        <a href="<?php echo admin_url('berita/tag/'. trim($tag)); ?>"><span class="badge"><?php echo trim($tag); ?></span></a>
+                                        <a href="<?php echo admin_url('berita/warta-usaha/tag/'. trim($tag)); ?>"><span class="badge"><?php echo trim($tag); ?></span></a>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="pull-right">
-                                <a href="<?php echo admin_url('berita/warta_usaha/edit/'. $row['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
-                                <a href="<?php echo admin_url('berita/warta_usaha/delete/'. $row['id']); ?>" class="btn btn-danger btn-sm" data-role="delete" data-ajax="false" data-confirm="Yakin akan menghapus data ini?">Hapus</a>
+                                <a href="<?php echo admin_url('berita/warta-usaha/edit/'. $row['id']); ?>" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="<?php echo admin_url('berita/warta-usaha/delete/'. $row['id']); ?>" class="btn btn-danger btn-sm" data-role="delete" data-ajax="false" data-confirm="Yakin akan menghapus data ini?">Hapus</a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

@@ -3,7 +3,7 @@
 if(!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Profil extends ADM_Controller {
+class Misc extends ADM_Controller {
 
     function __construct()
     {
@@ -11,50 +11,50 @@ class Profil extends ADM_Controller {
         $this->load->model('produk_model');
     }
     
-    private function _profil()
+    private function _misc()
     {
-        $get = $this->db->get('profil');
+        $get = $this->db->get('misc');
         return ($get && $get->num_rows()>0) ? $get->result_array() : FALSE;
     }
     
-    private function _detail($id_profil='')
+    private function _detail($id_misc='')
     {
-        if(! $id_profil)
+        if(! $id_misc)
         {
             return FALSE;
         }
         
-        $get = $this->db->where('id', $id_profil)
+        $get = $this->db->where('id', $id_misc)
                         ->limit(1)
-                        ->get('profil');
+                        ->get('misc');
         
         return ($get && $get->num_rows()>0) ? $get->row_array() : FALSE;
     }
     
     function index()
     {
-        $this->table('Sejarah');
+        $this->table('Kutipan');
     }
     
-    function hapus($id_profil='')
+    function hapus($id_misc='')
     {
-        if(! $id_profil)
+        if(! $id_misc)
         {
-            redirect(admin_url('profil'));
+            redirect(admin_url('misc'));
         }
         
-        $detail = $this->_detail($id_profil);
+        $detail = $this->_detail($id_misc);
         if($detail !== FALSE)
         {
-            $delete = $this->db->delete('profil', array('id'=>$id_profil));
-            $message = $delete ? 'Profil berhasil dihapus' : 'Profil gagal dihapus';
+            $delete = $this->db->delete('misc', array('id'=>$id_misc));
+            $message = $delete ? 'Data berhasil dihapus' : 'Data gagal dihapus';
             $this->session->set_flashdata('flashdata', $message);
-            redirect(admin_url('profil'));
+            redirect(admin_url('misc'));
         }
         else
         {
             $this->session->set_flashdata('flashdata', 'Data tidak ditemukan');
-            redirect(admin_url('profil'));
+            redirect(admin_url('misc'));
         }
     }
     
@@ -69,16 +69,16 @@ class Profil extends ADM_Controller {
         if($id == 'tambah')
         {
             $post_data['tanggal_input'] = date();
-            $save = $this->db->insert('profil', $post_data);
+            $save = $this->db->insert('misc', $post_data);
         }
         else
         {
-            $save = $this->db->update('profil', $post_data, array('id'=>$id));
+            $save = $this->db->update('misc', $post_data, array('id'=>$id));
         }
         
-        $message = $save ? 'Profil berhasil disimpan' : 'Profil gagal disimpan';
+        $message = $save ? 'Data berhasil disimpan' : 'Data gagal disimpan';
         $this->session->set_flashdata('flashdata', $message);
-        redirect(admin_url('profil/table/'. url_title($post_data['judul'])));
+        redirect(admin_url('misc/table/'. url_title($post_data['judul'])));
     }
     
     function tambah()
@@ -92,7 +92,7 @@ class Profil extends ADM_Controller {
         $vars = array(
             'active_listgroup_menu' => 'tambah',
             'judul' => 'Tambah',
-            'profil' => $this->_profil(),
+            'misc' => $this->_misc(),
         );
         $this->_data['content'] = $this->load->content('table', $vars, TRUE);
         $this->load->view('admin/main', $this->_data);
@@ -109,7 +109,7 @@ class Profil extends ADM_Controller {
         $vars = array(
             'active_listgroup_menu' => $judul,
             'judul' => str_replace('-', ' ', $judul),
-            'profil' => $this->_profil(),
+            'misc' => $this->_misc(),
         );
         $this->_data['content'] = $this->load->content('table', $vars, TRUE);
         $this->load->view('admin/main', $this->_data);

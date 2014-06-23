@@ -155,6 +155,39 @@ class Warta_usaha extends ADM_Controller {
         $this->load->view('admin/main', $this->_data);        
     }
     
+    function tag($tag='', $page=1)
+    {
+        if(! $tag)
+        {
+            $this->table();
+        }
+        else
+        {
+            $page = ((int)$page < 1) ? 1 : (int)$page;
+            $limit = 10;
+            $start = ($page <= 1) ? 0 : ($page-1) * $limit;
+        
+            // total rows
+            $this->db->like('tags', $tag);
+            $total_rows = $this->db->count_all_results('warta_usaha');
+        
+            $vars = array(
+                'active_listgroup_menu' => '',
+                'warta_usaha' => $this->warta_usaha_model->tag_warta_usaha($tag, $limit, $start),
+                'tag' => $tag,
+                'paging' => paging(array(
+                    'total_rows' => $total_rows,
+                    'per_page' => $limit,
+                    'uri_segment' => 6,
+                    'base_url' => admin_url('berita/warta-usaha/tag/'. $tag)
+                ))
+            );
+            
+            $this->_data['content'] = $this->load->content('table', $vars, TRUE);
+            $this->load->view('admin/main', $this->_data);
+        }
+    }
+    
     function tambah()
     {
         // add assets

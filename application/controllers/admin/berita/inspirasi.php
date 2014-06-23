@@ -3,12 +3,12 @@
 if(!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Kabar extends ADM_Controller {
+class Inspirasi extends ADM_Controller {
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model('kabar_model');
+        $this->load->model('inspirasi_model');
     }
     
     function index()
@@ -34,17 +34,17 @@ class Kabar extends ADM_Controller {
         {
             $this->db->or_like('judul', $key);
         }
-        $total_rows = $this->db->count_all_results('kabar');
+        $total_rows = $this->db->count_all_results('inspirasi');
     
         $vars = array(
             'active_listgroup_menu' => '',
-            'kabar' => $this->kabar_model->cari_kabar($keys, $limit, $start),
+            'inspirasi' => $this->inspirasi_model->cari_inspirasi($keys, $limit, $start),
             'cari' => $q,
             'paging' => paging(array(
                 'total_rows' => $total_rows,
                 'per_page' => $limit,
                 'uri_segment' => 5,
-                'base_url' => admin_url('berita/kabar/cari'),
+                'base_url' => admin_url('berita/inspirasi/cari'),
                 'sufix' => '?q='. urlencode($q)
             ))
         );
@@ -57,20 +57,20 @@ class Kabar extends ADM_Controller {
     {
         if(! $id)
         {
-            redirect(admin_url('berita/kabar'));
+            redirect(admin_url('berita/inspirasi'));
         }
         
-        $delete = $this->db->delete('kabar', array('id'=>$id));
+        $delete = $this->db->delete('inspirasi', array('id'=>$id));
         $message = $delete !== FALSE ? 'Kabar berhasil dihapus.' : 'Kabar gagal dihapus.';
         $this->session->set_flashdata('flashdata', $message);
-        redirect(admin_url('berita/kabar'));
+        redirect(admin_url('berita/inspirasi'));
     }
     
     function edit($id='')
     {
         if(! $id)
         {
-            redirect(admin_url('berita/kabar'));
+            redirect(admin_url('berita/inspirasi'));
         }
         
         // add assets
@@ -83,7 +83,7 @@ class Kabar extends ADM_Controller {
         $vars = array(
             'active_listgroup_menu' => 'edit',
             'mode' => 'edit',
-            'detail' => $this->kabar_model->detail($id)
+            'detail' => $this->inspirasi_model->detail($id)
         );
         $this->_data['content'] = $this->load->content('form', $vars, TRUE);
         
@@ -114,18 +114,18 @@ class Kabar extends ADM_Controller {
             {
                 unset($data['tanggal_input']);
                 $id = $this->input->post('id', TRUE);
-                $save = $this->db->update('kabar', $data, array('id'=>$id));
+                $save = $this->db->update('inspirasi', $data, array('id'=>$id));
             }
             else
             {
-                $save = $this->db->insert('kabar', $data);
+                $save = $this->db->insert('inspirasi', $data);
             }
             
             $this->session->set_flashdata(array(
                 'flashdata' => $save ? 'Kabar berhasil disimpan' : 'Kabar gagal disimpan',
                 'flashid' => md5($data['judul'])
             ));
-            redirect(admin_url('berita/kabar'));
+            redirect(admin_url('berita/inspirasi'));
         }
         else
         {
@@ -141,13 +141,13 @@ class Kabar extends ADM_Controller {
     
         $vars = array(
             'active_listgroup_menu' => 'table',
-            'kabar' => $this->kabar_model->kabar($limit, $start),
+            'inspirasi' => $this->inspirasi_model->inspirasi($limit, $start),
             'paging' => paging(array(
-                'total_rows' => $this->db->count_all('kabar'),
+                'total_rows' => $this->db->count_all('inspirasi'),
                 'per_page' => $limit,
                 'uri_segment' => 5,
-                'base_url' => admin_url('berita/kabar/table'),
-                'first_url' => admin_url('berita/kabar')
+                'base_url' => admin_url('berita/inspirasi/table'),
+                'first_url' => admin_url('berita/inspirasi')
             ))
         );
         
@@ -169,17 +169,17 @@ class Kabar extends ADM_Controller {
         
             // total rows
             $this->db->like('tags', $tag);
-            $total_rows = $this->db->count_all_results('kabar');
+            $total_rows = $this->db->count_all_results('inspirasi');
         
             $vars = array(
                 'active_listgroup_menu' => '',
-                'kabar' => $this->kabar_model->tag_kabar($tag, $limit, $start),
+                'inspirasi' => $this->inspirasi_model->tag_inspirasi($tag, $limit, $start),
                 'tag' => $tag,
                 'paging' => paging(array(
                     'total_rows' => $total_rows,
                     'per_page' => $limit,
                     'uri_segment' => 6,
-                    'base_url' => admin_url('berita/kabar/tag/'. $tag)
+                    'base_url' => admin_url('berita/inspirasi/tag/'. $tag)
                 ))
             );
             

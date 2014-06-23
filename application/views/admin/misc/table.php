@@ -1,6 +1,6 @@
 <?php 
 $current = array();
-foreach($profil as $row)
+foreach($misc as $row)
 {
     if($row['judul'] == $judul)
     {
@@ -24,7 +24,7 @@ foreach($profil as $row)
             <div class="alert alert-info"><?php echo $flashdata; ?></div>
         <?php endif; ?>
         
-        <form method="post" role="form" class="form-horizontal" action="<?php echo admin_url('profil/simpan'); ?>">
+        <form method="post" role="form" class="form-horizontal" action="<?php echo admin_url('misc/simpan'); ?>">
             <div class="form-group">
                 <label for="judul" class="col-sm-2 control-label">
                     <?php echo $active_listgroup_menu == 'tambah' ? 'Judul' : 'Ganti Judul'; ?>
@@ -53,7 +53,7 @@ foreach($profil as $row)
                             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                         <div class="pull-right">
-                            <a data-role="delete" href="<?php echo admin_url('profil/hapus/'. @$current['id']); ?>" class="btn btn-danger">Hapus</a>
+                            <a data-role="delete" href="<?php echo admin_url('misc/hapus/'. @$current['id']); ?>" class="btn btn-danger">Hapus</a>
                         </div>
                         <div class="clearfix"></div>
                     <?php endif; ?>

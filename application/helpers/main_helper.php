@@ -142,6 +142,25 @@ function paging($conf=array())
     return $paging;
 }
 
+function pre($str='', $exit=TRUE)
+{
+    echo '<pre>';
+    if($str)
+    {
+        print_r($str);
+    }
+    else
+    {
+        var_dump($str);
+    }
+    echo '</pre>';
+    
+    if($exit)
+    {
+        exit;
+    }
+}
+
 function print_date_localize($matches)
 {
     $d = array(
