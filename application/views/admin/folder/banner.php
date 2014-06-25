@@ -1,0 +1,1 @@
+<iframe frameborder="0" style="border:1px solid #CCC" height="500" width="100%" src="<?php echo assets_url('libs/filemanager/dialog.php?type=0&fldr=banner'); ?>"></iframe>

@@ -13,6 +13,26 @@ function assets_url($uri='')
     return base_url("assets/{$uri}");
 }
 
+function avatar_url($uri='')
+{
+    return base_url("user-avatar/{$uri}");
+}
+
+function avatar_path()
+{
+    return "D:/WWW-Root/cuct/user-avatar/";
+}
+
+function full_url()
+{
+    return 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+}
+
+function share_url($uri='', $thumb=FALSE)
+{
+    return $thumb ? base_url("share/thumbs/{$uri}") : base_url("share/fm/{$uri}");
+}
+
 function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
 {
     global $nav_html;
@@ -39,6 +59,14 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
         if($item['class'] == @$active_data['class'] && $level == 0)
         {
             $active = 'active';
+            if(isset($item['active_class']))
+            {
+                $active = '';
+                if(strpos(full_url(), $item['active_class']) !== FALSE)
+                {
+                    $active = 'active';
+                }
+            }
         }
         if(@$item['method'] == @$active_data['method'] && $level == 1)
         {

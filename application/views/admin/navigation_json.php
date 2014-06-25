@@ -11,7 +11,8 @@
         ]
     },
     
-    {"class":"download", "caption":"Download"},
+    {"class":"folder", "method":"banner", "active_class":"banner", "caption":"Banner"},
+    {"class":"folder", "method":"download", "active_class":"download", "caption":"Download"},
     {"class":"testimoni", "caption":"Testimoni"},
     {"class":"misc", "caption":"Lain-lain"}
 ]

@@ -13,5 +13,5 @@
 </div>
 
 <div class="a-banner">
-    <img src="<?php echo assets_url('images/banner/1.jpg'); ?>" />
+    <img src="<?php echo share_url('banner/1.jpg'); ?>" />
 </div>
