@@ -2,13 +2,31 @@
 .show-grid [class^=col-] {
   border: 1px dotted #CCC; }
 
+.carousel-indicators {
+  left: auto;
+  right: 10px;
+  bottom: 0;
+  width: auto; }
+
+.carousel-caption {
+  text-align: left; }
+
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   font-size: 13px; }
 
+.w100 {
+  width: 100%; }
+
 .bd01 {
   border: 1px dotted; }
+
+.mt10 {
+  margin-top: 10px; }
+
+.mt20 {
+  margin-top: 20px; }
 
 .mb10 {
   margin-bottom: 10px; }
@@ -67,6 +85,10 @@ a:focus, .a-navigation .nav-pills > li.active > a:focus, input[type='text']:focu
   .a-banner img {
     width: 100%;
     height: auto; }
+
+.content {
+  padding: 0 10px;
+  font-size: 14px; }
 
 .a-content {
   padding: 20px; }
@@ -308,3 +330,63 @@ a:focus, .a-navigation .nav-pills > li.active > a:focus, input[type='text']:focu
   .widget .widget-row .small {
     font-size: 12px;
     line-height: 1.3em; }
+
+.a-list-thumb {
+  padding: 0;
+  margin: 0; }
+  .a-list-thumb li {
+    padding: 0;
+    margin-right: 6px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    display: inline-block; }
+    .a-list-thumb li a, .a-list-thumb .a-navigation .nav-pills > li.active > a:hover, .a-navigation .a-list-thumb .nav-pills > li.active > a:hover, .a-list-thumb .a-navigation .nav-pills > li.active > a:focus, .a-navigation .a-list-thumb .nav-pills > li.active > a:focus {
+      display: block;
+      border: 1px solid #999;
+      background-color: #FFF;
+      padding: 3px; }
+      .a-list-thumb li a:hover, .a-list-thumb .a-navigation .nav-pills > li.active > a:hover, .a-navigation .a-list-thumb .nav-pills > li.active > a:hover {
+        border-color: #000; }
+  .a-list-thumb li.album {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: inline-block; }
+    .a-list-thumb li.album a, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus {
+      display: block;
+      border: 1px solid transparent;
+      position: relative;
+      margin-right: 30px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 136px;
+      color: #666; }
+      .a-list-thumb li.album a span, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover span, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover span, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus span, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus span, .a-list-thumb li.album a img, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover img, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover img, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus img, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus img {
+        display: block;
+        text-align: center;
+        background-color: #FFF; }
+        .a-list-thumb li.album a span.layer-1, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover span.layer-1, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover span.layer-1, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus span.layer-1, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus span.layer-1, .a-list-thumb li.album a span.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover span.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover span.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus span.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus span.layer-2, .a-list-thumb li.album a img.layer-1, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover img.layer-1, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover img.layer-1, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus img.layer-1, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus img.layer-1, .a-list-thumb li.album a img.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover img.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover img.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus img.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus img.layer-2 {
+          position: absolute;
+          width: 130px;
+          height: 98px;
+          border: 1px solid #999;
+          top: 0;
+          left: 0; }
+        .a-list-thumb li.album a span.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover span.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover span.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus span.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus span.layer-2, .a-list-thumb li.album a img.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover img.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover img.layer-2, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus img.layer-2, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus img.layer-2 {
+          top: 2px;
+          left: 2px; }
+      .a-list-thumb li.album a img, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover img, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover img, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus img, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus img {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        z-index: 1;
+        border: 1px solid #999;
+        padding: 3px; }
+      .a-list-thumb li.album a .name, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover .name, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover .name, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:focus .name, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:focus .name {
+        margin-top: 100px;
+        font-size: 13px; }
+      .a-list-thumb li.album a:hover, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover {
+        text-decoration: none;
+        color: #000; }
+        .a-list-thumb li.album a:hover img, .a-list-thumb li.album .a-navigation .nav-pills > li.active > a:hover img, .a-navigation .a-list-thumb li.album .nav-pills > li.active > a:hover img, .a-list-thumb li.album a:hover span.layer-1, .a-list-thumb li.album a:hover span.layer-2 {
+          border-color: #333; }

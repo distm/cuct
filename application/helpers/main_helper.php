@@ -23,6 +23,49 @@ function avatar_path()
     return "D:/WWW-Root/cuct/user-avatar/";
 }
 
+function file_icon($ext='')
+{
+    $ext = trim(strtolower($ext));
+    
+    // word
+    if(preg_match('/(doc|rtf)/', $ext))
+    {
+        return 'fa-file-word-o';
+    }
+    
+    // pdf
+    if(preg_match('/(pdf)/', $ext))
+    {
+        return 'fa-file-pdf-o';
+    }
+    
+    // excel
+    if(preg_match('/(xls|csv)/', $ext))
+    {
+        return 'fa-file-excel-o';
+    }
+    
+    // ppt
+    if(preg_match('/(ppt)/', $ext))
+    {
+        return 'fa-file-powerpoint-o';
+    }
+    
+    // image
+    if(preg_match('/(png|jpg|jpeg|gif|tiff|bmp)/', $ext))
+    {
+        return 'fa-file-image-o';
+    }
+    
+    // archives
+    if(preg_match('/(zip|rar|tar|gz|7z)/', $ext))
+    {
+        return 'fa-file-archive-o';
+    }
+    
+    return FALSE;
+}
+
 function full_url()
 {
     return 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
@@ -55,28 +98,16 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
     $nav_html .= '<ul class="'. $cls .'"'. $atr .'>';
     foreach($nav as $item)
     {
-        $active = '';
-        if($item['class'] == @$active_data['class'] && $level == 0)
-        {
-            $active = 'active';
-            if(isset($item['active_class']))
-            {
-                $active = '';
-                if(strpos(full_url(), $item['active_class']) !== FALSE)
-                {
-                    $active = 'active';
-                }
-            }
-        }
-        if(@$item['method'] == @$active_data['method'] && $level == 1)
-        {
-            $active = 'active';
-        }
-        
         if(isset($item['children']) && is_array($item['children']) && count($item['children']))
         {
             $cls_li = ($level >= 1) ? 'dropdown-submenu' : 'dropdown';
             $caret = ($cls_li == 'dropdown') ? ' <b class="caret"></b>' : '';
+            
+            $active = '';
+            if(isset($item['active_parent']) && strpos(full_url(), $item['active_parent']) !== FALSE)
+            {
+                $active = 'active';
+            }
             
             $nav_html .= '<li class="'. $active .' '. $cls_li .'">';
             $nav_html .= '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'. $item['caption'] . $caret .'</a>';
@@ -99,6 +130,16 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
                 $href = $item['href'];
             }
             
+            $active = '';
+            if($href == full_url())
+            {
+                $active = 'active';
+            }
+            if(isset($item['active_parent']) && strpos(full_url(), $item['active_parent']) !== FALSE)
+            {
+                $active = 'active';
+            }
+            
             $nav_html .= '<li class="'. $active .'">';
             $nav_html .= '<a href="'. $href .'" title="'. $item['caption'] .'">'. $item['caption'] .'</a>';
             $nav_html .= '</li>'."\n";
@@ -107,6 +148,30 @@ function mapNav($nav, $is_child=FALSE, $level=0, $active_data=array())
     $nav_html .= '</ul>'."\n";
     
     return $nav_html;
+}
+
+function misc($key='', $strip_tags=TRUE)
+{
+    if(! $key)
+    {
+        return FALSE;
+    }
+    
+    $CI =& get_instance();
+    $get = $CI->db->select('konten')
+                  ->limit(1)
+                  ->where(array('judul'=>$key))
+                  ->get('misc');
+                  
+    if($get && $get->num_rows()>0)
+    {
+        $row = $get->row();
+        return $strip_tags ? trim(strip_tags($row->konten, '<span><strong><a>')) : $row->konten;
+    }
+    else
+    {
+        return $key ? '~'.$key : FALSE;
+    }
 }
 
 function paging($conf=array())

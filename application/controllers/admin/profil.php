@@ -62,13 +62,13 @@ class Profil extends ADM_Controller {
     {
         $post_data = array(
             'judul' => $this->input->post('judul', TRUE),
-            'konten' => $this->input->post('konten', TRUE)
+            'konten' => $this->input->post('konten')
         );
         
         $id = $this->input->post('id', TRUE);
         if($id == 'tambah')
         {
-            $post_data['tanggal_input'] = date();
+            $post_data['tanggal_input'] = date('YmdHis');
             $save = $this->db->insert('profil', $post_data);
         }
         else

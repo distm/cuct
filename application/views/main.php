@@ -13,6 +13,10 @@
         <link rel="stylesheet" type="text/css" href="<?php echo assets_url('libs/select2/old/select2.css'); ?>" />        
         <link rel="stylesheet" type="text/css" href="<?php echo assets_url('css/style.css'); ?>" />
         
+        <?php foreach((array)$css as $f): ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo $f; ?>" />
+        <?php endforeach; ?>
+        
         <!--[if IE]>
             <link rel="stylesheet" type="text/css" href="<?php echo assets_url('css/style-ie.css'); ?>" />
         <![endif]-->
@@ -35,6 +39,7 @@
         <div class="a-content">
             <div class="a-content-wrapper">
                 <?php echo $header; ?>
+                <?php echo $banner; ?>
                 <?php echo $content; ?>
                 <?php echo $footer; ?>
             </div>
@@ -42,6 +47,11 @@
         
         <script type="text/javascript" src="<?php echo assets_url('libs/todc/js/bootstrap.min.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo assets_url('libs/select2/old/select2.min.js'); ?>"></script>
+        
+        <?php foreach((array)$js as $f): ?>
+        <script type="text/javascript" src="<?php echo $f; ?>"></script>
+        <?php endforeach; ?>
+        
         <script type="text/javascript" src="<?php echo assets_url('js/app.js'); ?>"></script>
     </body>
 </html>

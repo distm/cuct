@@ -42,6 +42,12 @@ $route['default_controller'] = "beranda";
 $route['404_override'] = '';
 
 $route['admin'] = 'admin/beranda';
+$route['admin/berita'] = 'admin';
+
+$route['misc/(:any)'] = 'misc/grab/$1';
+$route['profil/(:any)'] = 'profil/grab/$1';
+$route['galeri/(:any)'] = 'galeri/index/$1';
+$route['produk-dan-layanan/(:any)'] = 'produk-dan-layanan/grab/$1';
 
 
 /* End of file routes.php */

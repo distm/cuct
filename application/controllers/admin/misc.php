@@ -62,7 +62,7 @@ class Misc extends ADM_Controller {
     {
         $post_data = array(
             'judul' => $this->input->post('judul', TRUE),
-            'konten' => $this->input->post('konten', TRUE)
+            'konten' => $this->input->post('konten')
         );
         
         $id = $this->input->post('id', TRUE);

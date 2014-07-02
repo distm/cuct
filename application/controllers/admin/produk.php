@@ -65,7 +65,7 @@ class Produk extends ADM_Controller {
         $post_data = array(
             'nama_produk' => $this->input->post('nama_produk', TRUE),
             'kategori' => $this->input->post('kategori', TRUE),
-            'deskripsi' => $this->input->post('deskripsi', TRUE)
+            'deskripsi' => $this->input->post('deskripsi')
         );
         
         $mode = $this->input->post('mode', TRUE);

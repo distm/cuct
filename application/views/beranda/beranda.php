@@ -16,11 +16,12 @@
         <!-- center -->
         <div class="col-xs-6">
             <?php $this->load->content('quote'); ?>
+            <?php $this->load->view('default/banner-slide'); ?>
             <?php $this->load->content('tab_content'); ?>
             
             <div class="clearfix mb20"></div>
             
-            <?php $this->load->content('tab_news'); ?>
+            <?php $this->load->content('tab_produk'); ?>
         </div>
         
         <!-- right -->

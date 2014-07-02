@@ -154,7 +154,7 @@ class Testimoni extends ADM_Controller {
                 $post_data = array(
                     'nama' => $this->input->post('nama', TRUE),
                     'email' => '',
-                    'konten' => $this->input->post('konten', TRUE)
+                    'konten' => $this->input->post('konten')
                 );
                 
                 if(! is_numeric($nama_foto))

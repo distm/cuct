@@ -24,4 +24,20 @@ $(function(){
         });
     });
     
+    // coursel
+    $('.carousel').carousel({
+        interval: 3000
+    });
+    
+    // lightbox
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+            gallery: "g1",
+            gallery_parent_selector: "gallery",
+            left_arrow_class: "fa fa-chevron-left",
+            right_arrow_class: "fa fa-chevron-right"
+        });
+    });
+    
 });

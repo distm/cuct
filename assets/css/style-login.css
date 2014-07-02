@@ -1,0 +1,19 @@
+body {
+    font: 14px Arial;
+    padding: 0;
+    margin: 0;
+}
+
+.a-login {
+    border: 1px solid #AAA;
+    background-color: #FFF;
+    box-shadow: 0 3px 10px -3px #AAA;
+    margin: 50px auto;
+    width: 500px;
+    padding: 20px;
+}
+
+.a-login h3 {
+    padding: 0;
+    margin: 0 0 15px;
+}

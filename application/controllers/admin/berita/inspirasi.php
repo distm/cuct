@@ -105,7 +105,7 @@ class Inspirasi extends ADM_Controller {
             $data = array(
                 'judul'  => $this->input->post('judul', TRUE), 
                 'tags'   => strtolower($this->input->post('tags', TRUE)), 
-                'konten' => $this->input->post('konten', TRUE),
+                'konten' => $this->input->post('konten'),
                 'tanggal_input' => date('YmdHis')
             );
             

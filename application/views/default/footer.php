@@ -11,8 +11,11 @@ $navs = json_decode($json, TRUE);
                     <li class="list-group-header">Navigasi</li>
                     <?php foreach($navs as $nav): ?>
                         <?php if(! preg_match('/(beranda|profil|produk)/i', $nav['class'])): ?>
+                            <?php 
+                            $href = isset($nav['href']) ? $nav['href'] : base_url($nav['class'] .'/'. @$nav['method']);
+                            ?>
                             <li class="list-group-item">
-                                <a href="<?php echo base_url($nav['class']); ?>"><?php echo $nav['caption']; ?></a>
+                                <a href="<?php echo $href; ?>"><?php echo $nav['caption']; ?></a>
                             </li>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -24,7 +27,7 @@ $navs = json_decode($json, TRUE);
                     <li class="list-group-header">Produk Simpanan</li>
                     <?php foreach($navs[2]['children'][0]['children'] as $nav): ?>
                         <li class="list-group-item">
-                            <a href="<?php echo base_url($nav['class']); ?>"><?php echo $nav['caption']; ?></a>
+                            <a href="<?php echo base_url(@$nav['class'].'/'.@$nav['method'].'/'.@$nav['params']); ?>"><?php echo $nav['caption']; ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -35,7 +38,7 @@ $navs = json_decode($json, TRUE);
                     <li class="list-group-header">Produk Pinjaman</li>
                     <?php foreach($navs[2]['children'][1]['children'] as $nav): ?>
                         <li class="list-group-item">
-                            <a href="<?php echo base_url($nav['class']); ?>"><?php echo $nav['caption']; ?></a>
+                            <a href="<?php echo base_url(@$nav['class'].'/'.@$nav['method'].'/'.@$nav['params']); ?>"><?php echo $nav['caption']; ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -46,7 +49,7 @@ $navs = json_decode($json, TRUE);
                     <li class="list-group-header">Profil CUCT</li>
                     <?php foreach($navs[1]['children'] as $nav): ?>
                         <li class="list-group-item">
-                            <a href="<?php echo base_url($nav['class']); ?>"><?php echo $nav['caption']; ?></a>
+                            <a href="<?php echo base_url(@$nav['class'].'/'.@$nav['method'].'/'.@$nav['params']); ?>"><?php echo $nav['caption']; ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>

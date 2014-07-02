@@ -9,12 +9,26 @@ class ADM_Controller extends MY_Controller {
     {
         parent::__construct();
         
+        // authenticate
+        $this->_authenticate();
+        
         // load library
         $this->load->library('form_validation');
         
         // setup
         $this->_setup_data();
         $this->_setup_navigation();
+    }
+    
+    private function _authenticate()
+    {
+        $auth_access = $this->session->userdata('auth_access');
+        if(! $auth_access)
+        {
+            $this->session->set_userdata('last_position', full_url());
+            redirect(base_url('auth/login'));
+            exit;
+        }
     }
     
     private function _setup_data()

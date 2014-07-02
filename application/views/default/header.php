@@ -7,11 +7,7 @@
         </div>
     </div>
     <div class="right-text">
-         membantu sesama menolong diri sendiri
+        <?php echo misc('Slogan'); ?>
     </div>
     <div class="clearfix"></div>
-</div>
-
-<div class="a-banner">
-    <img src="<?php echo share_url('banner/1.jpg'); ?>" />
 </div>

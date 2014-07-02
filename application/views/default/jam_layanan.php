@@ -19,16 +19,7 @@
                 </h4>
             </li>
             <li>
-                <span class="pull-right label label-success">08.00-15.00 WIB</span>
-                Senin-Jumat
-            </li>
-            <li>
-                <span class="pull-right label label-success">08.00-13.00 WIB</span>
-                Sabtu
-            </li>
-            <li>
-                <span class="pull-right label label-danger">Tutup</span>
-                Minggu/ Raya
+                <?php echo misc('Kotak Jam Layanan', FALSE); ?>
             </li>
         </ul>
         

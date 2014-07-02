@@ -21,6 +21,18 @@ class Folder extends ADM_Controller {
         $this->load->view('admin/main', $this->_data);
     }
     
+    function banner_slide()
+    {
+        $this->_data['content'] = $this->load->content('banner-slide', '', TRUE);
+        $this->load->view('admin/main', $this->_data);
+    }
+    
+    function galeri()
+    {
+        $this->_data['content'] = $this->load->content('galeri', '', TRUE);
+        $this->load->view('admin/main', $this->_data);
+    }
+    
     function download()
     {
         $this->_data['content'] = $this->load->content('download', '', TRUE);
